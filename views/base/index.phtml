@@ -1,0 +1,35 @@
+
+<?php include ROOT.'/views/layouts/header.phtml';?>
+
+<div id="templatemo_slider">
+    <!-- This is the container for the carousel. -->
+    <div id = "carousel1" style="width:960px; height:280px;background:none;overflow:scroll; margin-top: 20px">
+        <!-- All images with class of "cloudcarousel" will be turned into carousel items -->
+        <!-- You can place links around these images -->
+        <?php foreach ($departments as  $departmentItem):?>
+        <a href="/department/<?=$departmentItem['id']?>" rel="lightbox"><img class="cloudcarousel" src="/template/images/slider/0<?=$departmentItem['id']?>.jpg" alt="<?=$departmentItem['department']?>" title="<?=$departmentItem['department']?>" /></a>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Define left and right buttons. -->
+    <center>
+        <input id="slider-left-but" type="button" value="" />
+        <input id="slider-right-but" type="button" value="" />
+    </center>
+</div>
+
+<div id="templatemo_main">
+
+    <?php foreach ($administration as  $administrationItem):?>
+    <div class="col one_fourth gallery_box">
+        <a href="/person/<?=$administrationItem['id']?>"><img style="width: 225px; height: 225px" src="/template/images/photo/<?=$administrationItem['photo']?>" alt="Image 01" class="image_frame"/></a>
+        <h5><?=$administrationItem['position']?></h5>
+        <p><?=$administrationItem['last_name']?> <?=$administrationItem['first_name']?> <?=$administrationItem['name_otches']?></p>
+    </div>
+    <?php endforeach; ?>
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+
+
+<?php include ROOT.'/views/layouts/footer.phtml';?>

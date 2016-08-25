@@ -1,0 +1,79 @@
+<?php include ROOT.'/views/layouts/header.phtml';?>
+
+
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper clearfix">
+
+        <!-- posts list -->
+        <div id="posts-list" class="single-post">
+
+            <h4 class="page-heading"><span>НОВОСТЬ</span></h4>
+
+            <article class="format-standard">
+                <div class="entry-date"><div class="year">Публикация <?=$post['date']?></div></div>
+                <div class="feature-image">
+                    <a href="/template/img/post/featured-<?=$post['id']?>.jpg" data-rel="prettyPhoto"><img src="/template/img/post/featured-<?=$post['id']?>.jpg" alt="Alt text" /></a>
+                </div>
+                <h4  class="post-heading"><a href="<?=$post['id']?>"><?=$post['name']?></a></h4>
+                <div class="post-content"><?=$post['description']?>
+                </div>
+                <div class="meta">
+                    <div class="comments"><a href="#">Коментарии <?=$getCountComments?></a></div>
+                </div>
+                <!-- comments list -->
+                <div id="comments-wrap">
+                    <h3 class="heading">Коментарии <?=$getCountComments?></h3>
+                    <ol class="commentlist">
+                        <?php foreach ($commentsList  as  $comments):?>
+                        <li class="comment even thread-even depth-1" id="li-comment-1">
+                            <div id="comment-1" class="comment-body clearfix">
+                                <img alt='' src='http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />
+                                <div class="comment-author vcard"><?=$comments['name']?></div>
+                                <div class="comment-meta commentmetadata">
+                                    <span class="comment-date"></span>
+                                </div>
+                                <div class="comment-inner">
+                                <p><?=$comments['description']?></p>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach; ?>
+
+                    </ol>
+                </div>
+                <div id="respond">
+
+                    <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></div>
+                    <form action="#" method="post" id="commentform">
+                        <h3 class="heading">Оставьте коментарий</h3>
+                        <input type="text" name="name" id="author" tabindex="1" /><br/>
+                        <textarea name="description" id="comment"  tabindex="4"></textarea><br/>
+                        <p><input name="submit" type="submit" id="submit" tabindex="5" value="Post" /></p>
+
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </article>
+        </div>
+        <aside id="sidebar">
+
+            <ul>
+                <li class="block">
+                    <h4>КАТЕГОРИИ</h4>
+                    <?php foreach ($categories as  $categoryItem):?>
+                        <ul>
+                            <li class="cat-item"><a href="/category/<?=$categoryItem['id']?>" title="View all posts"><?=$categoryItem['name']?></a></li>
+
+                        </ul>
+                    <?php endforeach; ?>
+                </li>
+            </ul>
+
+            <em id="corner"></em>
+        </aside>
+        <!-- ENDS sidebar -->
+
+    </div>
+</div>
+<?php include ROOT.'/views/layouts/footer.phtml';?>

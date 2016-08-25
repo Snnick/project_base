@@ -1,0 +1,49 @@
+
+<div id="templatemo_bottom_wrapper">
+    <div id="templatemo_bottom">
+        <div class="col one_third">
+            <h4><span></span>Меню</h4>
+            <div class="bottom_box">
+                <ul class="footer_list">
+                    <?php $menu = Menu::getMenu(); ?>
+                    <?php foreach ($menu as  $m):?>
+                        <li><a href="<?=$m['link']?>"><?=$m['name']?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="col one_third">
+            <h4><span></span>Цель</h4>
+            <div class="bottom_box">
+                <ul class="twitter_post">
+                    <li>Наш проект был создан, чтоб сэкономить Вам время при поиске информации о сотруднике компании. <a href="http://base.goodson.kiev.ua/">Справочник;)</a></li>
+                    <li>Быстро, качественно, надежно.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col one_third no_margin_right">
+            <h4><span></span>О нас</h4>
+            <div class="bottom_box">
+                <p><em>Справочник компании, который позволит быстро найти все необходимые данные о сотруднике.</em></p><br />
+                <div class="footer_social_button">
+                    <a href="#"><img src="/template/images/facebook.png" title="facebook" alt="facebook" /></a>
+                    <a href="#"><img src="/template/images/flickr.png" title="flickr" alt="flickr" /></a>
+                    <a href="#"><img src="/template/images/twitter.png" title="twitter" alt="twitter" /></a>
+                    <a href="#"><img src="/template/images/youtube.png" title="youtube" alt="youtube" /></a>
+                    <a href="#"><img src="/template/images/feed.png" title="rss" alt="rss" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cleaner"></div>
+    </div> <!-- END of tempatemo_bottom -->
+</div> <!-- END of tempatemo_bottom_wrapper -->
+
+<div id="templatemo_footer_wrapper">
+    <div id="templatemo_footer">
+        Copyright © 2016 Nick Sekretariov All Rights Reserved
+    </div> <!-- END of templatemo_footer_wrapper -->
+</div> <!-- END of templatemo_footer -->
+
+</body>
+</html>

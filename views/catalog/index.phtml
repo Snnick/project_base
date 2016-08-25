@@ -1,0 +1,17 @@
+
+<?php include ROOT.'/views/layouts/header.phtml';?>
+
+<div id="templatemo_main">
+
+    <h2>Отделы</h2>
+    <?php foreach ($departments as  $departmentItem):?>
+    <div class="col one_fourth gallery_box">
+            <a href="/department/<?=$departmentItem['id']?>" rel="lightbox"><img style="width: 230px; height=140px" class="cloudcarousel" src="/template/images/slider/0<?=$departmentItem['id']?>.jpg" alt="<?=$departmentItem['department']?>" title="<?=$departmentItem['department']?>" /></a>
+        <h5><?=$departmentItem['department']?></h5>
+    </div>
+    <?php endforeach; ?>
+
+    <div class="cleaner"></div>
+</div> <!-- END of templatemo_main -->
+
+<?php include ROOT.'/views/layouts/footer.phtml';?>

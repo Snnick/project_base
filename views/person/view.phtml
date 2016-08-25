@@ -1,0 +1,165 @@
+<?php include ROOT.'/views/layouts/header.phtml';?>
+
+    <!--Person -->
+    <link rel="stylesheet" type="text/css" href="/template/css/style.css" media="screen">
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/template/css/ie.css" media="screen">
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/template/css/lightbox.css" media="screen">
+    <script type="text/javascript" src="/template/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/template/js/jquery.lightbox-0.5.pack.js"></script>
+    <script type="text/javascript" src="/template/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="/template/js/Desyrel_400.font.js"></script>
+
+    <!-- Cufon text replacement -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Cufon.replace('#about .right ul li');
+            Cufon.replace('h2', { textShadow: '0 2px rgba(0, 0, 0, 0.15)' });
+            Cufon.replace('#social .right a', {hover:true});
+            Cufon.replace('#work .left h3', {hover:true});
+            Cufon.replace('h3', { textShadow: '0 2px rgba(0, 0, 0, 0.15)' });
+            Cufon.replace('#contactinfo'), {hover:true};
+        });
+    </script>
+
+    <!-- jQuery lightbox -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#work .right a').lightBox();
+        });
+    </script>
+
+    <!-- Navigation and Content effects -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.page').hide();
+            $('#navigation li:first').addClass('active').show();
+            $('.page:first').show();
+
+            $('#navigation li').click(function(){
+                $('#navigation li').removeClass('active');
+                $(this).addClass('active');
+
+                $('.page').hide();
+                var activeTab = $(this).find('a').attr('href');
+                $(activeTab).fadeIn('slow');
+                return false;
+            });
+        });
+    </script>
+    <!--End Person -->
+
+
+    <div id="pagewrap">
+
+        <!-- Site header and navigation -->
+        <div id="header">
+            <ul id="navigation">
+                <li><a class="about" href="#about"><img src="/template/images/icon-about.png" alt="About"></a></li>
+                <li><a class="work" href="#work">work</a></li>
+                <li><a class="social" href="#social"><img src="/template/images/icon-social.png" alt="Social"></a></li>
+                <li><a class="contact" href="#contact"><img src="/template/images/icon-contact.png" alt="Contact"></a></li>
+            </ul>
+        </div>
+
+        <!-- Site content -->
+
+
+
+        <div id="content">
+            <?php foreach ($personList as  $personListItem):?>
+            <div id="about" class="page">
+                <div class="left">
+                    <img style="height: 285px; width: 285px" src="/template/images/photo/<?=$personListItem['photo']?>" alt="photo">
+                </div>
+                <div class="right">
+                    <h4 style="font-size: 24px; color: #4DA4CF"><?=$personListItem['last_name']?> <?=$personListItem['first_name']?> <?=$personListItem['name_otches']?></h4>
+                    <p style="font-size: 17px; margin-top: 18px">
+                        <label style="margin-bottom: 8px" >Пол: <a href="/man/<?=$personListItem['mw_id']?>"> <?=$personListItem['man_wuman']?></a></label>
+                        <label style="margin-bottom: 8px">Дата рождения: <?=$personListItem['dob']?> года</label>
+                        <label style="margin-bottom: 8px">Место рождения: <a href="/country/<?=$personListItem['c_id']?>"> <?=$personListItem['country']?></a>, <a href="/city/<?=$personListItem['ci_id']?>"><?=$personListItem['city']?></a> </label>
+                        <label style="margin-bottom: 8px">Образование: <a href="/education/<?=$personListItem['e_id']?>"> <?=$personListItem['education']?></a> </label>
+                        <label style="margin-bottom: 8px">Семейное положение: <a href="/family/<?=$personListItem['f_id']?>"> <?=$personListItem['family']?></a> </label>
+                        <label style="margin-bottom: 8px">Адресс проживания: <?=$personListItem['address']?></label>
+                        <label style="margin-bottom: 8px">Телефон: <?=$personListItem['phone']?></label>
+                        <label style="margin-bottom: 8px">E-mail: <?=$personListItem['e_mail']?></label>
+                        <label style="margin-bottom: 8px">Skype: <?=$personListItem['skype']?></label>
+                        <label>Вредные привычки: <a href="/smok/<?=$personListItem['s_id']?>"> <?=$personListItem['smok']?></label></a> </label>
+                    </p>
+
+                </div>
+            </div>
+            <?php endforeach; ?>
+            <div id="work" class="page">
+                <?php foreach ($personWork as  $personWorkListItem):?>
+                <div class="left">
+                    <div  class="about_box">
+                        <img style="height: 250px; width: 250px" src="/template/images/photo/<?=$personWorkListItem['photo']?>" alt="Featured project">
+                        <h4 style="font-size: 17px; margin-left: 10px"><?=$personWorkListItem['position']?></a></h4>
+                        <p style="font-size: 15px; margin-top: 5px" class="position"><?=$personWorkListItem['department']?></p>
+                    </div>
+                </div>
+                <div class="right">
+                    <h4 style="font-size: 24px; color: #4DA4CF"><?=$personListItem['last_name']?> <?=$personListItem['first_name']?> <?=$personListItem['name_otches']?></h4>
+                    <p style="font-size: 17px; margin-top: 18px">
+
+                        <label style="margin-bottom: 8px">Руководитель: <a href="#"> </a> </label>
+                        <label style="margin-bottom: 8px">Кабинет: <a href="#"><?=$personWorkListItem['cabinet']?></a> </label>
+                        <label style="margin-bottom: 8px">Рабочий телефон:: <?=$personWorkListItem['work_phone']?></label>
+                        <label style="margin-bottom: 8px">ИНН: <?=$personWorkListItem['inn']?></label>
+                        <label style="margin-bottom: 8px">Паспортные данные: <?=$personWorkListItem['passport']?></label>
+
+                    </p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div id="social" class="page">
+                <div class="left">
+
+                    <img style="height: 285px; width: 285px" src="/template/images/photo/<?=$personListItem['photo']?>" alt="photo">
+
+                </div>
+                <div class="right">
+                    <h4 style="font-size: 24px; color: #4DA4CF"><?=$personListItem['last_name']?> <?=$personListItem['first_name']?> <?=$personListItem['name_otches']?></h4>
+                    <ul>
+                        <li class="facebook"><a href="#"><img src="/template/images/icon-facebook.png" alt="facebook"> facebook</a></li>
+                        <li class="flickr"><a href="#"><img src="/template/images/icon-flickr.png" alt="flickr"> vk</a></li>
+                        <li class="delicious"><a href="#"><img src="/template/images/icon-delicious.png" alt="delicious"> twitter</a></li>
+                        <li class="lastfm"><a href="#"><img src="/template/images/icon-lastfm.png" alt="last.fm"> ok</a></li>
+                        <li class="stumbleupon"><a href="#"><img src="/template/images/icon-stumbleupon.png" alt="Stumbleupon"> linkedin</a></li>
+                        <li class="digg"><a href="#"><img src="/template/images/icon-digg.png" alt="digg"> youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="contact" class="page">
+                <div class="left">
+                    <h4 style="margin: 0 0 0 17px; font-size: 16px; color: #990000">Нипиши мне</h4>
+                    <form method="post" action="">
+                        <ul>
+                            <li class="msgname">Имя: </label><input type="text" name="name" id="Name"></li>
+                            <li>E-mail: </label><input type="text" name="email" id="Email"></li>
+                            <li>Сообщение: </label><textarea name="message" id="Message" rows=2 cols=2></textarea></li>
+                            <li><input class="send" type="submit" name="submit" value="Отправить"></li>
+                        </ul>
+                    </form>
+                </div>
+                <?php foreach ($personList as  $personListItem):?>
+                <div class="right">
+                    <h4 style="font-size: 24px; color: #4DA4CF"><?=$personListItem['last_name']?> <?=$personListItem['first_name']?> <?=$personListItem['name_otches']?></h4>
+                    <p>Если у Вас появилась необходимость со мной связаться, можете это сделать <br> через форму обратной связи, которая расположенна слева или через контакты указанные ниже.</p>
+                    <div id="contactinfo">
+                        <p>Skype: <?=$personListItem['skype']?></p>
+                        <p>Tell: <?=$personListItem['phone']?></p>
+                        <p>E-mail: <?=$personListItem['e_mail']?></a></p>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+
+    </div>
+<?php include ROOT.'/views/layouts/footer.phtml';?>
